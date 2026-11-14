@@ -46,14 +46,8 @@
 [ext_resource type="Texture2D" uid="uid://ds8c32yosm5ra" path="res://spriteanims/door!2.png" id="35_ens8i"]
 [ext_resource type="Texture2D" uid="uid://dykl5gp32kb0j" path="res://spriteanims/door!1.png" id="36_yklg6"]
 [ext_resource type="Texture2D" uid="uid://f45e1ipngk7s" path="res://background texture.png" id="37_yklg6"]
-[ext_resource type="Texture2D" uid="uid://bctayiiotnkmn" path="res://rocketblock-32x32_4.png" id="38_770c0"]
-[ext_resource type="Script" uid="uid://c2vw5mk2pwrdn" path="res://rocketbox.gd" id="38_ps13k"]
-[ext_resource type="Texture2D" uid="uid://ce8a78isc506e" path="res://spriteanims/rocketshoot1.png" id="40_pnilr"]
-[ext_resource type="Texture2D" uid="uid://brqp2wtxwyxty" path="res://spriteanims/rocketshoot2.png" id="41_oq3a0"]
-[ext_resource type="Texture2D" uid="uid://uks7loib6ba5" path="res://spriteanims/rocketshoot3.png" id="42_ctq0g"]
-[ext_resource type="Texture2D" uid="uid://hgudw355ogeo" path="res://spriteanims/rocketshoot4.png" id="43_v5y4c"]
-[ext_resource type="Texture2D" uid="uid://cxo5vnfqah2jw" path="res://spriteanims/rocketshoot5.png" id="44_osmiw"]
-[ext_resource type="Texture2D" uid="uid://g2mtq412o5me" path="res://spriteanims/rocketshoot6.png" id="45_5gt1g"]
+[ext_resource type="AudioStream" uid="uid://crbnx7qnkdowk" path="res://touchswitch_last_2d.wav" id="47_ctq0g"]
+[ext_resource type="AudioStream" uid="uid://d2uvqbthxwfka" path="res://Tony Hawk's Pro Skater 1+2 Special Trick sound effect.mp3" id="48_v5y4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijygm"]
 size = Vector2(47, 45)
@@ -214,45 +208,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddck8"]
 size = Vector2(591, 29)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_te5el"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8nn7b"]
-animations = [{
-"frames": [],
-"loop": 1,
-"name": &"following",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_t4yvt")
-}, {
-"duration": 1.0,
-"texture": ExtResource("40_pnilr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_oq3a0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("42_ctq0g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("43_v5y4c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("44_osmiw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("45_5gt1g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_t4yvt")
-}],
-"loop": 0,
-"name": &"shoot",
-"speed": 10.0
-}]
 
 [node name="main" type="Node2D" unique_id=1120075018]
 
@@ -448,23 +403,13 @@ texture = ExtResource("37_yklg6")
 region_enabled = true
 region_rect = Rect2(0, 0, 1158, 960)
 
-[node name="rocketbox" type="StaticBody2D" parent="." unique_id=921059746]
-position = Vector2(582, 411)
-rotation = 1.569556
-script = ExtResource("38_ps13k")
+[node name="gempickupsfx" type="AudioStreamPlayer" parent="." unique_id=650403802]
+stream = ExtResource("47_ctq0g")
+volume_db = -25.544
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rocketbox" unique_id=1892974474]
-shape = SubResource("RectangleShape2D_te5el")
-
-[node name="Sprite2D" type="Sprite2D" parent="rocketbox" unique_id=397129131]
-texture = ExtResource("38_770c0")
-
-[node name="rocketshoot" type="AnimatedSprite2D" parent="rocketbox" unique_id=50171446]
-position = Vector2(1.044651, -35.998734)
-sprite_frames = SubResource("SpriteFrames_8nn7b")
-animation = &"shoot"
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1565974931]
+[node name="winsfx" type="AudioStreamPlayer" parent="." unique_id=1452002863]
+stream = ExtResource("48_v5y4c")
+volume_db = -35.578
 
 [connection signal="timeout" from="Gameoverui/Timer" to="Gameoverui" method="_on_timer_timeout"]
 [connection signal="pressed" from="Gameoverui/Control/restart" to="Gameoverui" method="_on_restart_pressed"]

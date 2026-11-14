@@ -23,10 +23,11 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("walk left", "walk right")
 	if direction:
 		velocity.x = direction * SPEED
+		$Sprite2D.hide()
 		$playerwalk.play("walk")
+		$playerwalk.animation_finished
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
 
 func _on_junppad_body_entered(_body: CharacterBody2D) -> void:
@@ -38,4 +39,3 @@ func _on_spike_body_entered(_body: CharacterBody2D) -> void:
 
 func _on_spike_2_body_entered(_body: CharacterBody2D) -> void:
 	game_over_ui.trigger_game_over()
-	

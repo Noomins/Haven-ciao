@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2uvqbthxwfka"
+path="res://.godot/imported/Tony Hawk's Pro Skater 1+2 Special Trick sound effect.mp3-b61dccebfae770adb9541514599949d6.mp3str"
+
+[deps]
+
+source_file="res://Tony Hawk's Pro Skater 1+2 Special Trick sound effect.mp3"
+dest_files=["res://.godot/imported/Tony Hawk's Pro Skater 1+2 Special Trick sound effect.mp3-b61dccebfae770adb9541514599949d6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

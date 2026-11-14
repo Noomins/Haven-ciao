@@ -1,5 +1,7 @@
 extends Area2D
-@export var game_over_ui: CanvasLayer
 
-func _ready():
-	body_entered.connect(_on_body_entered)
+@onready var s_collision_shape = $"collision spike"
+@onready var s_sprite = $"spikeblock sprite"
+func activate_spike():
+	s_sprite.show()
+	s_collision_shape.set_deferred("disabled", false)

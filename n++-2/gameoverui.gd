@@ -3,12 +3,11 @@ extends CanvasLayer
 @onready var control_node = $Control
 @onready var restart_button = $Control/restart
 @onready var escape_timer = $Timer
-@onready var countdown_label = $CountdownLabel
-func ready():
-	countdown_label.show()
-	
+@onready var s_collision_shape = $collisionspike
+@onready var s_sprite = $spikesprite
+@onready var g_collision_shape = $"../the gem/gem collision"
+@onready var g_sprite = $"../the gem/gem sprite"
 func trigger_game_over():
-	countdown_label.hide()
 	control_node.show() 
 	get_tree().paused = true
 func start_escape_timer(seconds: float):
@@ -18,9 +17,14 @@ func _on_restart_pressed():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
-func _process(_delta):
-	if not escape_timer.is_stopped():
-		countdown_label.text = "Time left: str(int(escape_timer.time_left))"
-
 func _on_timer_timeout():
 	trigger_game_over()
+
+func _on_the_gem_body_entered(body: CharacterBody2D) -> void:
+	start_escape_timer(10.0)
+	get_tree().call_group("spikes", "activate_spike")
+	$"../spike/spikespawn".play("spawn")
+	g_sprite.hide()
+	g_collision_shape.set_deferred("disabled", true)
+	
+	

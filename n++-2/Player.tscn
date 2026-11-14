@@ -1,9 +1,12 @@
-[gd_scene format=3 uid="uid://co4k6q7tapdrl"]
+[gd_scene format=3 uid="uid://bo0dua0thkas1"]
 
 [ext_resource type="Script" uid="uid://c13cep5r7akui" path="res://character_body_2d.gd" id="1_kpjcp"]
-[ext_resource type="Texture2D" uid="uid://b4si3v88u522m" path="res://icon.svg" id="2_kne1u"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xhfnw"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijygm"]
+size = Vector2(47, 45)
 
 [node name="Player" type="Node2D" unique_id=188086051]
 
@@ -11,7 +14,7 @@
 script = ExtResource("1_kpjcp")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=577689545]
-texture = ExtResource("2_kne1u")
+texture = SubResource("CompressedTexture2D_xhfnw")
 
 [node name="player collision" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1885101052]
 shape = SubResource("RectangleShape2D_ijygm")

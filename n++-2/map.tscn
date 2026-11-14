@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://uv5sm3movkga"]
+
+[ext_resource type="Texture2D" uid="uid://dbq4kw1iauejw" path="res://makebead-32x32.png" id="1_c7s6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijygm"]
+size = Vector2(1151, 31.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjf4h"]
+size = Vector2(27, 43)
+
+[node name="Map" type="Node2D" unique_id=1759424730]
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=1263388551]
+position = Vector2(579, 502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=2120435850]
+position = Vector2(0, 27.625)
+shape = SubResource("RectangleShape2D_ijygm")
+
+[node name="Sprite2D" type="Sprite2D" parent="floor/CollisionShape2D" unique_id=317489803]
+texture_repeat = 2
+position = Vector2(-1.0000095, 44.25)
+scale = Vector2(1.0359713, 1)
+texture = ExtResource("1_c7s6e")
+region_enabled = true
+region_rect = Rect2(0, 0, 1116, 32)
+
+[node name="spike" type="StaticBody2D" parent="." unique_id=1330036398]
+position = Vector2(360, 509)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spike" unique_id=485292785]
+position = Vector2(4.5, -16.5)
+shape = SubResource("RectangleShape2D_hjf4h")

@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://u08fd8s5e0k3"]
+
+[node name="Node2D" type="Node2D" unique_id=1346243975]
+texture_repeat = 2

@@ -1,7 +1,1 @@
 res://character_body_2d.gd
-res://Player.tscn
-res://map.tscn
-res://main scene.tscn
-res://spike.gd
-res://gameoverui.gd
-res://the_gem.gd

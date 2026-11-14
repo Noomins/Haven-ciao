@@ -3,10 +3,10 @@ extends CanvasLayer
 @onready var control_node = $Control
 @onready var restart_button = $Control/restart
 @onready var escape_timer = $Timer
-@onready var s_collision_shape = $collisionspike
-@onready var s_sprite = $spikesprite
+@onready var s_collision_shape = $"../spike/collision spike"
+@onready var s_sprite = $"../spike/spikeblock sprite"
 @onready var g_collision_shape = $"../the gem/gem collision"
-@onready var g_sprite = $"../the gem/gem sprite"
+@onready var g_sprite = $"../the gem/AnimatedSprite2D"
 func trigger_game_over():
 	control_node.show() 
 	get_tree().paused = true

@@ -25,7 +25,7 @@ texture = ExtResource("1_c7s6e")
 region_enabled = true
 region_rect = Rect2(0, 0, 1116, 32)
 
-[node name="spike" type="StaticBody2D" parent="." unique_id=1330036398]
+[node name="spike" type="Area2D" parent="." unique_id=1230456834]
 position = Vector2(360, 509)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spike" unique_id=485292785]

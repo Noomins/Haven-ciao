@@ -1,0 +1,194 @@
+[gd_scene format=3 uid="uid://ro61u1mqhx2u"]
+
+[ext_resource type="Script" uid="uid://c13cep5r7akui" path="res://character_body_2d.gd" id="1_c0ne2"]
+[ext_resource type="Texture2D" uid="uid://b4si3v88u522m" path="res://icon.svg" id="2_0afw7"]
+[ext_resource type="Texture2D" uid="uid://dbq4kw1iauejw" path="res://makebead-32x32.png" id="3_ux2rm"]
+[ext_resource type="Script" uid="uid://dkkn46uj63qq5" path="res://spike.gd" id="4_0afw7"]
+[ext_resource type="Texture2D" uid="uid://curccmhgg6eq5" path="res://perm spike-32x32_2.png" id="5_ux2rm"]
+[ext_resource type="Texture2D" uid="uid://c6o0ft1q33ljv" path="res://spriteanims/spritepad1.png" id="6_52ei1"]
+[ext_resource type="Texture2D" uid="uid://6u65uuklib5v" path="res://spriteanims/spritepad2.png" id="7_v7vy4"]
+[ext_resource type="Texture2D" uid="uid://xom7mqvpecmc" path="res://spriteanims/spritepad3.png" id="8_7bxi3"]
+[ext_resource type="Texture2D" uid="uid://nxce7rn05elu" path="res://spriteanims/spritepad4.png" id="9_lslek"]
+[ext_resource type="Texture2D" uid="uid://bid7cx5bdty11" path="res://spriteanims/spritepad5.png" id="10_cws43"]
+[ext_resource type="Texture2D" uid="uid://bj3ptwtpa7b64" path="res://spriteanims/spritepad6.png" id="11_j008o"]
+[ext_resource type="Texture2D" uid="uid://cjk2hiscar11t" path="res://spriteanims/spritepad7.png" id="12_xn55d"]
+[ext_resource type="Texture2D" uid="uid://dmc0cyuly1eqo" path="res://spriteanims/spritepad8.png" id="13_tfagm"]
+[ext_resource type="Texture2D" uid="uid://duhrd8ngs3lpl" path="res://spriteanims/spritepad9.png" id="14_ipocw"]
+[ext_resource type="Texture2D" uid="uid://c6sgqsdct3th7" path="res://spriteanims/spritepad10.png" id="15_aw4ih"]
+[ext_resource type="Script" uid="uid://csmv222ar7qkk" path="res://gameoverui.gd" id="16_v7vy4"]
+[ext_resource type="Texture2D" uid="uid://ckw5ur3d2qneo" path="res://gem.jpg" id="17_7bxi3"]
+[ext_resource type="Script" uid="uid://vbddil5m4qqr" path="res://the_gem.gd" id="17_lslek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijygm"]
+size = Vector2(47, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgb2t"]
+size = Vector2(1151, 31.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjf4h"]
+size = Vector2(27, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52ei1"]
+size = Vector2(20, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijygm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_52ei1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v7vy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7bxi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lslek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cws43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j008o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xn55d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tfagm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ipocw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_aw4ih")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5270r"]
+
+[node name="main" type="Node2D" unique_id=1120075018]
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=1518033763 node_paths=PackedStringArray("game_over_ui")]
+position = Vector2(65, 545)
+script = ExtResource("1_c0ne2")
+game_over_ui = NodePath("../Gameoverui")
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=577689545]
+position = Vector2(-39.5, 41)
+scale = Vector2(0.3828125, 0.359375)
+texture = ExtResource("2_0afw7")
+
+[node name="player collision" type="CollisionShape2D" parent="player" unique_id=1885101052]
+position = Vector2(-39.5, 40.5)
+shape = SubResource("RectangleShape2D_ijygm")
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=1263388551]
+position = Vector2(575, 595)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=2120435850]
+position = Vector2(-1, 33)
+shape = SubResource("RectangleShape2D_sgb2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="floor/CollisionShape2D" unique_id=317489803]
+texture_repeat = 2
+position = Vector2(3.9999905, 1)
+scale = Vector2(1.0359713, 1)
+texture = ExtResource("3_ux2rm")
+region_enabled = true
+region_rect = Rect2(0, 0, 1116, 32)
+
+[node name="spike" type="Area2D" parent="." unique_id=1230456834]
+position = Vector2(383, 563)
+script = ExtResource("4_0afw7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spike" unique_id=485292785]
+position = Vector2(0, 29)
+shape = SubResource("RectangleShape2D_hjf4h")
+
+[node name="Sprite2D" type="Sprite2D" parent="spike" unique_id=376305544]
+position = Vector2(0, 66)
+texture = ExtResource("5_ux2rm")
+
+[node name="junppad" type="Area2D" parent="." unique_id=236799452]
+position = Vector2(615, 599)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="junppad" unique_id=455644231]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_52ei1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="junppad" unique_id=844104961]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_ijygm")
+frame_progress = 0.022892812
+
+[node name="Gameoverui" type="CanvasLayer" parent="." unique_id=1135746457]
+process_mode = 3
+script = ExtResource("16_v7vy4")
+
+[node name="Control" type="Control" parent="Gameoverui" unique_id=252491335]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="gameoveruidark" type="ColorRect" parent="Gameoverui/Control" unique_id=1766031846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14044744, 0.14044744, 0.14044744, 0.39215687)
+
+[node name="restart" type="Button" parent="Gameoverui/Control" unique_id=1188487202]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 354.0
+offset_right = 587.0
+offset_bottom = 385.0
+offset_transform_position = Vector2(480, 270)
+offset_transform_pivot = Vector2(480, 270)
+action_mode = 0
+text = "Restart"
+
+[node name="gameovertext" type="Label" parent="Gameoverui/Control" unique_id=1096029907]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 228.0
+offset_right = 595.0
+offset_bottom = 251.0
+text = "Game over!"
+
+[node name="Timer" type="Timer" parent="Gameoverui" unique_id=469827184]
+one_shot = true
+
+[node name="CountdownLabel" type="Label" parent="Gameoverui" unique_id=889489693]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="the gem" type="Area2D" parent="." unique_id=2135960028 node_paths=PackedStringArray("game_over_ui")]
+position = Vector2(767, 579)
+script = ExtResource("17_lslek")
+game_over_ui = NodePath("../Gameoverui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="the gem" unique_id=2021848581]
+shape = SubResource("RectangleShape2D_5270r")
+
+[node name="Sprite2D" type="Sprite2D" parent="the gem" unique_id=1702756169]
+position = Vector2(1.66893e-06, 1.0000186)
+scale = Vector2(0.34455958, 0.493243)
+texture = ExtResource("17_7bxi3")
+
+[connection signal="body_entered" from="spike" to="player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="junppad" to="player" method="_on_junppad_body_entered"]
+[connection signal="pressed" from="Gameoverui/Control/restart" to="Gameoverui" method="_on_restart_pressed"]
+[connection signal="timeout" from="Gameoverui/Timer" to="Gameoverui" method="_on_timer_timeout"]
+[connection signal="body_entered" from="the gem" to="player" method="_on_the_gem_body_entered"]

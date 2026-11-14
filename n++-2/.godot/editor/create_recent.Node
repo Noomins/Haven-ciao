@@ -1,8 +1,10 @@
 AnimatedSprite2D
+NavigationAgent2D
 Sprite2D
 CollisionShape2D
-Label
+StaticBody2D
 Area2D
+Label
 Timer
 Button
 ColorRect

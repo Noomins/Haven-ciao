@@ -1,3 +1,6 @@
 res://character_body_2d.gd
 res://main scene.tscn
 res://gameoverui.gd
+res://spike.gd
+res://exitdoor.gd
+res://rocketbox.gd

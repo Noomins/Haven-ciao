@@ -2,12 +2,13 @@ extends CharacterBody2D
 @export var game_over_ui: CanvasLayer
 @onready var s_collision_shape = $"../spike/collision spike"
 @onready var s_sprite = $"../spike/spikeblock sprite"
+@onready var s1_sprite = $"../spike/spikespawn"
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var gameover = false
 func _ready():
-	s_collision_shape.set_deferred("disabled", true)
+	s1_sprite.hide()
 	$"../the gem/AnimatedSprite2D".play("idle")
 
 func _physics_process(delta: float) -> void:
@@ -22,16 +23,19 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("walk left", "walk right")
 	if direction:
 		velocity.x = direction * SPEED
-		
+		$playerwalk.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-func _on_spike_body_entered(body: CharacterBody2D) -> void:
-	if game_over_ui :
-		game_over_ui.trigger_game_over()
 
-func _on_junppad_body_entered(body: CharacterBody2D) -> void:
-	velocity.y = JUMP_VELOCITY *1.5
+func _on_junppad_body_entered(_body: CharacterBody2D) -> void:
+	velocity.y = JUMP_VELOCITY *1.75
 	$"../junppad/AnimatedSprite2D".play("jump")
+
+func _on_spike_body_entered(_body: CharacterBody2D) -> void:
+	game_over_ui.trigger_game_over()
+
+func _on_spike_2_body_entered(_body: CharacterBody2D) -> void:
+	game_over_ui.trigger_game_over()
 	
